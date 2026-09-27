@@ -1,0 +1,170 @@
+\documentclass[11pt,a4paper]{article}
+
+% ---------- Packages ----------
+\usepackage[margin=2.5cm]{geometry}
+\usepackage{amsmath, amssymb, amsthm, mathtools}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage{fancyhdr}
+
+% ---------- Sheet details (edit these) ----------
+\newcommand{\modulename}{Introduction to Pure Mathematics}
+\newcommand{\sheetnumber}{1}
+\newcommand{\myname}{Daniel Greenfield}
+
+% ---------- Header ----------
+\setlength{\headheight}{14pt}
+\pagestyle{fancy}
+\fancyhf{}
+\lhead{\modulename}
+\rhead{Sheet \sheetnumber}
+\cfoot{\thepage}
+
+% ---------- Number sets ----------
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+
+
+
+
+\begin{document}
+
+\begin{center}
+  {\Large \textbf{\modulename}}\\[0.3em]
+  {\large Problem Sheet \sheetnumber}\\[0.3em]
+  \myname
+\end{center}
+
+\section*{Part A}
+\begin{enumerate}
+    \item \begin{enumerate}
+            \item $1,2,3,4$ is not a set however $\{1,2,3,4\}$ is a set. 
+            \item $\{1,2,4,3,3\}$ is a set.
+            \item $\{1, \{ 2, 3\}, 4]\}$ is a set.
+            \item $\emptyset$ is a set.
+            \item $\{\texttt{blue}, \texttt{house}\}$ is a set.
+            \item $\{\texttt{horse}, \texttt{cat}, \emptyset\}$ is a set.
+    \end{enumerate} 
+    \item \begin{enumerate}
+            \item  "$3 = 2$" is a statement.
+            \item  "$3 + 2$" is not a statement.
+            \item  "$3 \geq 2$" is a statement.
+            \item  "$3$ and $ 2$" is not a statement.
+            \item  "$\{4\} \subseteq \Z$ and $ 4 = 2$" is a statement.
+            \item  "$4 \in \Z$ or $ 4 + 2$" is not a statement.
+            \item  "$\Z \cap \Q$" is not a statement.
+            \item  "$\Z \subseteq \Q$" is a statement.
+            \item  "$|5|$" is not a statement.
+    \end{enumerate}
+    \item Let $A = \{ \texttt{cat} , \{1, \texttt{cat}\}, \alpha, \{\alpha\}\}\}$
+        \begin{enumerate}
+            \item $\texttt{cat} \in A$ is true.
+            \item $\{\texttt{cat}\} \notin A$ is true. 
+            \item $\{1, \texttt{cat}\} \subseteq A$ is false. 
+            \item $\{\texttt{cat}, \alpha\} \subseteq A$ is true. 
+            \item $\emptyset \subsetneq A$ is true.
+            \item $A = \{\alpha, \texttt{cat}, \{1, \texttt{cat}\}, \{\alpha\}\}$ is true.
+                \item $A = \{1, \{1, \texttt{cat},\}, \alpha\}$ is false.
+    \end{enumerate}
+    \item Let $A = \{1, \sqrt{2}, \pi, \texttt{cat}\}$ and $B = \{0, \sqrt{2}, \texttt{dog}, \texttt{cat}\}$ then 
+    
+        $A \cup B = \{1, \sqrt{2}, \pi, \texttt{cat}, 0, \texttt{dog}\}$
+
+        $A \cap B = \{\sqrt{2}, \texttt{cat}\}$
+
+        $A \setminus B = \{1,  \pi\}$ 
+
+        $B \setminus A = \{0, \texttt{dog}\}$ 
+    \item For the following 13 subsets of $\R$:
+
+        $\emptyset$;    $\Z$;      $2\Z$; $A_1 = \Z \setminus \R$;   $A_2 = \{x \in \R : 1 \leq x \leq 3\}$;  
+        $A_3 = \{1,2,3\}$;   $A_4 = \Z_{-} \cap \{0\} \cap \Z_{+}$; $A_5 = \Z_{-} \cup \{0\} \cup \Z_{+}$;
+        $A_6 = \{x \in \Z : x \geq 1 \texttt{ or } x \leq 3\}$;   $A_7 = \{ x \in \Z : x \geq 1 \texttt{ and } x \leq 3 \}$; $A_8 = \{ x \in \Z: \forall k \in \Z , x = 2k\}$;  $A_9 = \{x \in \Z: \exists k \in \Z \texttt{ such that } x = 2k\}$; $A_{10} = \{x \in \Z: \exists k \in \R \texttt{ such that } x = 2k\}$
+        
+        We have the following equal subsets
+        \begin{itemize}
+            \item $\emptyset = A_1 = A_4 = A_8$
+            \item $\Z = A_5 = A_6 = A_{10}$
+            \item $2\Z = A_9$
+            \item $A_2$ is not equal to any other subset
+            \item $A_3 = A_7$
+        \end{itemize}
+        We also have the following chains of subsets:
+        \begin{itemize}
+            \item $\emptyset \subsetneq 2\Z \subsetneq \Z$
+            \item $\emptyset \subsetneq A_3 \subsetneq \Z$
+            \item $\emptyset \subsetneq A_3 \subsetneq A_2$
+        \end{itemize}
+
+    \item We know that $\Z_+ \subseteq \Z_{\geq 0} \subseteq \Z$ Since $0 \in \Z_{\geq 0}$ and $0 \notin \Z_+$ it must be true that $\Z_{\geq 0} \neq \Z_+$ and similarly $-1 \in \Z$ and $-1 \notin \Z_{\geq 0}$ we get that $\Z \neq \Z_{\geq 0}$. Therefore $\Z_+ \subsetneq \Z_{\geq 0} \subsetneq \Z$.
+
+    \item $A,B \subseteq \Z$
+        \begin{enumerate}
+            \item $A \cap B = \emptyset$ and $A \cup B \neq \Z$ is true for $A = \emptyset$ and $B = \emptyset$
+            \item $A \cap B \neq \emptyset$ and $A \cup B = \Z$ is true for $A = \Z$ and $B = \Z$
+            \item $A \cap B = \emptyset$ and $A \cup B = \Z$ is true for $A = \emptyset$ and $B = \Z$
+        \end{enumerate}
+    \item Let $ \{A_i: i \in \Z_{\geq 0}\}$ be a collection of subsets of $\Z$ defined by $A_i = \{x \in \Z : -i \leq x \leq i\}$.
+        \begin{enumerate}
+            \item $\bigcup_{i \in \{1,2,3,4\}} A_i = \{-4, -3, \cdots, 0 , \cdots , 3, 4 \}$
+            \item $\bigcap_{i \in \{1,2,3,4\} A_i = \{-1, 0, 1\}{$
+            \item $\bigcup_{i \in \Z_{\geq 0}} A_i = \Z$
+            \item $\bigcap_{i \in \Z_{\geq 0}} A_i = \{0\}$
+        \end{enumerate}
+    \item TODO
+
+\end{enumerate}}
+
+
+\section*{Part B}
+    \begin{enumerate}
+        \item Let $A = \{ x \in \R : x < 5\}$  and $B = \{\pi, 2\sqrt{5}, 5\}$ be subsets of $\R$ 
+            \begin{enumerate}
+                \item $A \cap \Z = \{x \in \Z : x \leq 4 \}; $A \cap B = \{\pi, 2\sqrt{5}\}$;
+                    $A \cup B = \{ x \in \R: x \leq 5\}$; $B \setminus A = \{5\}$; $A^c = \{x \in \R: x \geq 5\}$ 
+                \item TODO
+            \end{enumerate}
+        \item \begin{enumerate}
+            \item $\forall x \in \R , \exists y \in \R$ such that $xy = 1$ is a false statement.
+            \item $\forall x,y \in \R$ we have $xy = 1$ is a false statement.
+            \item$\exists x \in \R$ such that $\exists y \in \R$ such that $xy = 1$ is a true statment.
+            \item $\exists x \in \R$ such that $\forall y \in \R$ we have $xy = 1$ is a false statement.
+        \end{enumerate}
+        \item TODO
+        \item TODO
+        \item TODO
+        \item TODO
+        \item Let $a, b \in \R $ with $a < b$. Show that $\frac{a + b}{2} < b$ and $a < \frac{a + b}{2}$.
+        Arithmetic properties of $\R$ these are satisfied $\forall x,y,z \in \R$
+
+        ($\R$1) $x \cdot 0 = 0, 1 \cdot x = x$ and $x + 0 = x$
+
+        ($\R$2) $- (-x) = x $ and $ -0 = 0$ 
+
+        ($\R$3) $y + x = x + y$ and $x + ( y + z) = (x + y) + z$
+
+        ($\R$4) if $x > y$ then $x + y > y + z$; in addition, if $ z > 0$ then $xz  > yz$
+
+        ($\R$5) if $ x > y$ and $y > z$ then $x > z$
+
+        ($\R$6) $x^2 \geq 0$
+
+        Proof:
+        Starting with $a < b$ we can add $b$ to both sides due to $\R4$ giving us $a + b < 2b$ then multiply both sides by $\frac{1}{2}$ since $\frac{1}{2} > 0$ giving us $\frac{a + b}{2} < b$. Inorder to prove the second statement we again start with $a < b$ then add $a$ using $\R 4$ giving $2a < a + b$ and again times through by $\frac{1}{2}$ giving $a < \frac{a+b}{2}$. Therefore $\forall a,b \in \R $ if $a > b$ then $\frac{a+b}{2} < b$ and $a < \frac{a+b}{2}$.
+
+    \end{enumerate}
+
+
+\section*{Part C}
+    \begin{enumerate}
+        \item Find subsets $A,B$ and $C$ of $\R$ such that
+        \begin{enumerate}
+            \item $(A \cap B) \cup C \neq A \cap (B \cup C)$
+            \item $(A \cap B) \cup C \neq A \cap (B \cup C)$
+        \end{enumerate}
+    \end{enumerate}
+
+\end{document}
