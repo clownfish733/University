@@ -1,0 +1,63 @@
+\documentclass[11pt,a4paper]{article}
+
+% ---------- Packages ----------
+\usepackage[margin=2.5cm]{geometry}
+\usepackage{amsmath, amssymb, amsthm, mathtools}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage{fancyhdr}
+
+% ---------- Sheet details (edit these) ----------
+\newcommand{\modulename}{Introduction to Pure Mathematics}
+\newcommand{\sheetnumber}{1}
+\newcommand{\myname}{Daniel Greenfield}
+
+% ---------- Header ----------
+\setlength{\headheight}{14pt}
+\pagestyle{fancy}
+\fancyhf{}
+\lhead{\modulename}
+\rhead{Sheet \sheetnumber}
+\cfoot{\thepage}
+
+% ---------- Number sets ----------
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+
+
+
+
+\begin{document}
+
+\begin{center}
+  {\Large \textbf{\modulename}}\\[0.3em]
+  {\large Problem Sheet \sheetnumber}\\[0.3em]
+  \myname
+  \section*{Section B (7)}
+          Let $a, b \in \R $ with $a < b$. Show that $\frac{a + b}{2} < b$ and $a < \frac{a + b}{2}$.
+        Arithmetic properties of $\R$ these are satisfied $\forall x,y,z \in \R$
+
+        ($\R$1) $x \cdot 0 = 0, 1 \cdot x = x$ and $x + 0 = x$
+
+        ($\R$2) $- (-x) = x $ and $ -0 = 0$ 
+
+        ($\R$3) $y + x = x + y$ and $x + ( y + z) = (x + y) + z$
+
+        ($\R$4) if $x > y$ then $x + y > y + z$; in addition, if $ z > 0$ then $xz  > yz$
+
+        ($\R$5) if $ x > y$ and $y > z$ then $x > z$
+
+        ($\R$6) $x^2 \geq 0$
+
+        Proof:
+        Starting with $a < b$ we can add $b$ to both sides due to $\R4$ giving us $a + b < 2b$ then multiply both sides by $\frac{1}{2}$ since $\frac{1}{2} > 0$ giving us $\frac{a + b}{2} < b$. Inorder to prove the second statement we again start with $a < b$ then add $a$ using $\R 4$ giving $2a < a + b$ and again times through by $\frac{1}{2}$ giving $a < \frac{a+b}{2}$. Therefore $\forall a,b \in \R $ if $a < b$ then $\frac{a+b}{2} < b$ and $a < \frac{a+b}{2}$.
+
+
+    
+\end{center}
+
+
+\end{document}

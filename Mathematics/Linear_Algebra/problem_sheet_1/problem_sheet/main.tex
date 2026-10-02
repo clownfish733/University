@@ -1,0 +1,119 @@
+\documentclass[11pt,a4paper]{article}
+
+% ---------- Packages ----------
+\usepackage[margin=2.5cm]{geometry}
+\usepackage{amsmath, amssymb, amsthm, mathtools}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage{fancyhdr}
+
+% ---------- Sheet details (edit these) ----------
+\newcommand{\modulename}{Introduction to Pure Mathematics}
+\newcommand{\sheetnumber}{1}
+\newcommand{\myname}{Daniel Greenfield}
+
+% ---------- Header ----------
+\setlength{\headheight}{14pt}
+\pagestyle{fancy}
+\fancyhf{}
+\lhead{\modulename}
+\rhead{Sheet \sheetnumber}
+\cfoot{\thepage}
+
+% ---------- Number sets ----------
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+
+
+
+
+\begin{document}
+
+\begin{center}
+  {\Large \textbf{\modulename}}\\[0.3em]
+  {\large Problem Sheet \sheetnumber}\\[0.3em]
+  \myname
+\end{center}
+\section*{Question 1.1.}
+
+    \begin{enumerate}[label=\alph*.]
+        \item  Let $u = \begin{pmatrix} 1 \\ 0 \end{pmatrix}$ and $v = \begin{pmatrix} 1 \\ y\end{pmatrix}$ with $y  \in \R$ then 
+
+            $ \| u \| = 1$
+
+            $\| v \| = \sqrt{1 + y^2}$
+
+            $\| u + v \| = \sqrt{4 + y^2}$
+
+            Finding $ y \in \R $ such that $\| u + v\| = \| u \| + \| v \| $.
+
+            \[
+                \sqrt{4 + y^2} = 1 + \sqrt{1 + y^2}
+            \]
+            
+            Squaring both sides gives us
+            
+            \[
+                4 + y^2 = 1 + 1 + y^2 + 2 \cdot \sqrt{1 + y^2}
+            \]
+
+            Which can be simplified to:
+
+            \[
+                1 = \sqrt{1 + y^2}
+            \]
+
+            Squaring both sides again leaves us with
+            
+            \[
+                1 = 1 + y^2
+            \]
+
+            Therefore $ y = 0 $.
+        \item let $v_1, v_2, \cdots , v_k$ be k arbitrary vectors in $\R^n$. For $k \in \Z_{+}$ let $P(k)$  be the statement:
+            \[
+                \| v_1 + v_2 + \cdots + v_k \| \leq \| v_1 \| + \| v_2 \| + \cdots \| v_k \|
+            \]
+        We will use induction to prove that $\forall k \in \Z_+ P(k)$ is true.
+        For P(1) \[
+            \| v_1 \| \leq \| v_1 \| 
+        \] 
+        is true as the left hand side and the right hand side are equal. \\
+        For P(2) \[
+            \| v_1 + v_2 \| \leq \| v_1 \| + \| v_2 \|      
+        \] is true due to the triangle inequality ($ \| u + v \| \leq \| u \| + \| v \| $).
+        Now assume that $P(k)$ is true for some integers $k > 2$.
+        \[
+            \| v_1 + v_2 + \cdots + v_k \| \leq \| v_1 \| + \| v_2 \| + \cdots \| v_k \|
+        \]
+        Adding $\| v_{k+1} \|$ where $v_{k+1} \in \R^n$ is some arbitrary vector in $\R^n$ to both sides will not change the truth value of the inequality giving us
+        \[
+            \| v_1 + v_2 + \cdots + v_k \| + \| v_{k+1} \|  \leq \| v_1 \| + \| v_2 \| + \cdots \| v_k \| + \| v_{k+1} \| 
+        \]
+        Using the triangle inequality again we can get a second inequality involving the left hand side:
+        \[
+            \| v_1 + v_2 + \cdots + v_k + v_{k+1}\|\leq \| v_1 + v_2 + \cdots + v_k \| + \| v_{k+1} \|  \leq \| v_1 \| + \| v_2 \| + \cdots + \| v_k \| + \| v_{k+1} \| 
+        \]
+        Due to the transitive properties of inequalities we get that:
+        \[
+            \| v_1 + v_2 + \cdots + v_k + v_{k+1}\| \leq \| v_1 \| + \| v_2 \| + \cdots + \| v_k \| + \| v_{k+1} \| 
+        \]
+        Which is the statement $P(k+1)$, so we have shown that if $P(k)$ is true then $P(k+1)$ is true.
+
+        So we have shown that for $k > 2$, $P(k) \Rightarrow P(k+1)$ and that $P(1)$ and $P(2)$ are true. Then by the method of induction we have shown that $P(k)$ is true for all $k \in \Z_+$.
+       
+        An example for which $\|v_1 + v_2 + \cdots + v_k\| = \| v_1 \| + \| v_2 \| + \cdot + \| v_k \|$  is \\ $v_1 = \begin{pmatrix} 1 \\ 1 \\ -4 \end{pmatrix}, \ \ v_2 = \begin{pmatrix} 2 \\ 2 \\ -8 \end{pmatrix} , \ \ v_3 = \begin{pmatrix}3 \\ 3 \\ -12\end{pmatrix}$. 
+        \\ Where $\| v_1\| = 3\sqrt{2}$ , $\| v_2\| = 6\sqrt{2}$, $\| v_3 \| = 9\sqrt{2}$, $v_1 + v_2 + v_3 = \begin{pmatrix}6 \\ 6 \\ -24\end{pmatrix}, \\ 
+        $\|v_1 + v_2 + v_3\| = 18\sqrt{2}$ and $\| v_1 \| + \| v_2 \| + \| v_3 \| = 18\sqrt{2} = \| v_1 + v_2 + v_3 \|$
+        \\ However this equality holds for any set of vectors if all the vectors are parallel in the same direction ($\forall i,j \in [1,k], \exists \lambda \in \R_+ $ such that $v_i = \lambda v_j).
+
+
+
+    \end{enumerate}
+
+
+
+\end{document}

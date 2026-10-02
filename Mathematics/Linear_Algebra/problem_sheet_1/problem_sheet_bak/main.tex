@@ -1,0 +1,227 @@
+\documentclass[11pt,a4paper]{article}
+
+% ---------- Packages ----------
+\usepackage[margin=2.5cm]{geometry}
+\usepackage{amsmath, amssymb, amsthm, mathtools}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage{fancyhdr}
+
+% ---------- Sheet details (edit these) ----------
+\newcommand{\modulename}{Linear Algebra}
+\newcommand{\sheetnumber}{1}
+\newcommand{\myname}{Daniel Greenfield}
+
+% ---------- Header ----------
+\setlength{\headheight}{14pt}
+\pagestyle{fancy}
+\fancyhf{}
+\lhead{\modulename}
+\rhead{Sheet \sheetnumber}
+\cfoot{\thepage}
+
+% ---------- Number sets ----------
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+
+
+
+
+\begin{document}
+
+\begin{center}
+  {\Large \textbf{\modulename}}\\[0.3em]
+  {\large Problem Sheet \sheetnumber}\\[0.3em]
+  \myname
+\end{center}
+\section*{Question 1.1.}
+
+    \begin{enumerate}[label=\alph*.]
+        \item
+        \item let $v_1, v_2, \cdots , v_k$ be k arbitrary vectors in $\R^n$. For $k \in \Z_{+}$ let $P(k)$  be the statement:
+            \[
+                \| v_1 + v_2 + \cdots + v_k \| \leq \| v_1 \| + \| v_2 \| + \cdots \| v_k \|
+            \]
+        We will use induction to prove that $\forall k \in \Z_+ P(k)$ is true.
+        For P(1) \[
+            \| v_1 \| \leq \| v_1 \| 
+        \] 
+        is true as the left hand side and the right hand side are equal. \\
+        For P(2) \[
+            \| v_1 + v_2 \| \leq \| v_1 \| + \| v_2 \|      
+        \] is true due to the triangle inequality ($ \| u + v \| \leq \| u \| + \| v \| $).
+        Now assume that $P(K)$ is true for some integers $k > 2$.
+        \[
+            \| v_1 + v_2 + \cdots + v_k \| \leq \| v_1 \| + \| v_2 \| + \cdots \| v_k \|
+        \]
+        Adding $\| v_{k+1} \|$ where $v_{k+1} \in \R^n$ is some arbitrary vector in $R^n$ to both sides will not change the truth value of the inequality giving us
+        \[
+            \| v_1 + v_2 + \cdots + v_k \| + \| v_{k+1} \|  \leq \| v_1 \| + \| v_2 \| + \cdots \| v_k \| + \| v_{k+1} \| 
+        \]
+        Using the triangle inequality again we can get a second inequality involving the left hand side:
+        \[
+            \| v_1 + v_2 + \cdots + v_k + v_{k+1}\|\leq \| v_1 + v_2 + \cdots + v_k \| + \| v_{k+1} \|  \leq \| v_1 \| + \| v_2 \| + \cdots + \| v_k \| + \| v_{k+1} \| 
+        \]
+        Due to the transitive properties of inequalities we get that:
+        \[
+            \| v_1 + v_2 + \cdots + v_k + v_{k+1}\| \leq \| v_1 \| + \| v_2 \| + \cdots + \| v_k \| + \| v_{k+1} \| 
+        \]
+        Which is the statement $P(k+1)$ is so we have shown that if $P(k)$ is true then $P(k+1)$ is true.
+
+        So we have shown that for $k > 2$, $P(k) \Rightarrow P(k+1)$ and that $P(1)$ and $P(2)$ are true. Then by the method of induction we have shown that $P(k)$ is true for all $k \in \Z_+$.
+
+    \end{enumerate}
+
+\section*{Question 1.1.}
+    \begin{enumerate}[label=\alph*.]
+        \item  Let $u = \begin{pmatrix} 1 \\ 0 \end{pmatrix}$ and $v = \begin{pmatrix} 1 \\ y\end{pmatrix}$ with $y  \in \R$ then 
+
+            $ \| u \| = 1$
+
+            $\| v \| = \sqrt{1 + y^2}$
+
+            $\| u + v \| = \sqrt{4 + y^2}$
+
+            Finding $ y \in \R $ such that $\| u + v\| = \| u \| + \| v \| $.
+
+            \[
+                \sqrt{4 + y^2} = 1 + \sqrt{1 + y^2}
+            \]
+            
+            Squaring both sides gives us
+            
+            \[
+                4 + y^2 = 1 + 1 + y^2 + 2 \cdot \sqrt{1 + y^2}
+            \]
+
+            Which can be simplified to:
+
+            \[
+                1 = \sqrt{1 + y^2}
+            \]
+
+            Squaring both sides again leaves us with
+            
+            \[
+                1 = 1 + y^2
+            \]
+
+            Therefore $ y = 0 $.
+
+        \item Let $v_1 , v_2 , \cdots , v_k \in \R^n$ be k arbitrary vectors in $\R^n$. 
+            Prove that:
+                \[
+                    \| v_1 + v_2 + \cdots + v_k \| \leq \|v_1 \| + \| v_2 \| + \cdots + \| v_k \|
+                \]
+
+            Proof:
+            Let $\{A_m \in \R : m \in [0, k] \}$ such that $A_m$ is 
+            \[
+                A_m = \| v_1 \| + \| v_2 \|  + \cdots + \| v_m \| + \| v_{m + 1} + \cdots +  v_k \| = \Sigma_{i \in [1, m]} \| v_i \|  + \| \Sigma_{i \in [m + 1, k]} v_i\|
+            \] 
+
+            So that $A_0 = \|v_1 + v_2 + \cdots + v_k \|$ and $A_k = \| v_1 \| + \| v_2 \| + \cdots + \| v_k \|$ .
+
+            For any $A_m$
+                \[
+                    A_m = \| v_1 \| + \| v_2 \| + \cdots + \| v_{m - 1}\| + \| v_m \| + \| v_{m+1} + \cdots + v_k \|
+                \]
+
+                By utilising the triangle inequality ($ \| u + v \| \leq \| u \| + \|v \|$) where $ u = v_m $ and  \\ $v = v_{m+1} + \cdots + v_k$. We get
+                \[
+                    A_m \geq \| v_1 \| + \| v_2 \| + \cdots + \| v_{m-1} \| + \| v_m + (v_{m+1} + \cdots + v_k)\|
+                \]
+                Therefore by definition of A 
+                \[
+                    A_m \geq A_{m - 1}, \forall m \in [0, k]
+                \]
+                Giving us the inequality
+                \[
+                    A_0 \leq A_1 \leq \cdots \leq A_k
+                \]
+                Therefore my the transitive property of inequalities we get $A_0 \leq A_k$ and hence
+                \[
+                    \| v_1 + v_2 + \cdots + v_k \| \leq \|v_1 \| + \| v_2 \| + \cdots + \| v_k \| \ \ \  \blacksquare
+                \]
+    \end{enumerate}
+
+    \section*{Question 1.1. (Alt)}
+
+    \begin{enumerate}[label=\alph*.]
+        \item
+        \item Let $v_1, v_2, \cdots , v_k \in \R^n$ be $k$ arbitrary vectors in $\R^n$.
+            Proof of:
+                \[
+                    \|v_1 + v_2 + \cdots + v_k\| \leq \| v_1 \| + \| v_2 \| + \cdots + \| v_k \|
+                \]
+            for $k =2$ the inequality is $\|v_1 + v_2\| \leq \|v_1\| + \| v_2\|$ which is just the triangle inequality and therefore true
+
+            Assuming that the statement is true for some value $k$ such that
+            \[
+                \| v_1  + v_2 + \cdots + v_k \| \leq \| v_1 \| + \| v_2 \| + \cdots \| v_k \|
+            \]
+            If we add $\|v_{k+1}\|$ to both sides we get:
+            \[
+                \| v_1  + v_2 + \cdots + v_k \| + \| v_{k+1} \| \leq \| v_1 \| + \| v_2 \| + \cdots \| v_k \| +\| v_{k+1} \|
+            \]
+            Due to the triangle inequality ($ \| u + v \| \leq \| u \| + \| v \| $ ) we get this inequality with the left hand side:
+
+            \[
+                \| v_1 + v_2 + \cdots + v_k + v_{k+1} \| \leq \| v_1  + v_2 + \cdots + v_k \| + \| v_{k+1} \|
+            \]
+            Combining these to inequalities we get
+            \[
+                \| v_1 + v_2 + \cdots + v_k + v_{k+1} \| \leq \| v_1  + v_2 + \cdots + v_k \| + \| v_{k+1} \| \leq \| v_1 \| + \| v_2 \| + \cdots \| v_k \| +\| v_{k+1} \|
+            \]
+            Therefore due to the transitive properties
+
+    \end{enumerate}
+    \section*{Question 1.1. (Alt2)}
+
+    \begin{enumerate}[label=\alph*.]
+        \item
+        \item let $v_1, v_2, \cdots , v_k$ be k arbitrary vectors in $\R^n$. For $k \in \Z_{+}$ let $P(k)$  be the statement:
+            \[
+                \| v_1 + v_2 + \cdots + v_k \| \leq \| v_1 \| + \| v_2 \| + \cdots \| v_k \|
+            \]
+        We will use induction to prove that $\forall k \in \Z_+ P(k)$ is true.
+        For P(1) \[
+            \| v_1 \| \leq \| v_1 \| 
+        \] 
+        is true as the left hand side and the right hand side are equal. \\
+        For P(2) \[
+            \| v_1 + v_2 \| \leq \| v_1 \| + \| v_2 \|      
+        \] is true due to the triangle inequality ($ \| u + v \| \leq \| u \| + \| v \| $).
+        Now assume that $P(K)$ is true for some integers $k > 2$.
+        \[
+            \| v_1 + v_2 + \cdots + v_k \| \leq \| v_1 \| + \| v_2 \| + \cdots \| v_k \|
+        \]
+        Adding $\| v_{k+1} \|$ where $v_{k+1} \in \R^n$ is some arbitrary vector in $R^n$ to both sides will not change the truth value of the inequality giving us
+        \[
+            \| v_1 + v_2 + \cdots + v_k \| + \| v_{k+1} \|  \leq \| v_1 \| + \| v_2 \| + \cdots \| v_k \| + \| v_{k+1} \| 
+        \]
+        Using the triangle inequality again we can get a second inequality involving the left hand side:
+        \[
+            \| v_1 + v_2 + \cdots + v_k + v_{k+1}\|\leq \| v_1 + v_2 + \cdots + v_k \| + \| v_{k+1} \|  \leq \| v_1 \| + \| v_2 \| + \cdots + \| v_k \| + \| v_{k+1} \| 
+        \]
+        Due to the transitive properties of inequalities we get that:
+        \[
+            \| v_1 + v_2 + \cdots + v_k + v_{k+1}\| \leq \| v_1 \| + \| v_2 \| + \cdots + \| v_k \| + \| v_{k+1} \| 
+        \]
+        Which is the statement $P(k+1)$ is so we have shown that if $P(k)$ is true then $P(k+1)$ is true.
+
+        So we have shown that for $k > 2$, $P(k) \Rightarrow P(k+1)$ and that $P(1)$ and $P(2)$ are true. Then by the method of induction we have shown that $P(k)$ is true for all $k \in \Z_+$.
+
+    \end{enumerate}
+
+
+    \section*{Last Part}
+    \[
+        \| v_1 + v_2 + \cdots + v_k \| = \| v_1 \| + \| v_2 \| + \cdots \| v_k \|
+    \]
+    is true if $\forall i,j \in [1,k] , \exists k \in \R_{+}$ such that $v_i = k \cdot v_j$.
+
+\end{document}
